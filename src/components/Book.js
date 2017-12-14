@@ -3,6 +3,17 @@ import { findDOMNode} from 'react-dom';
 import { DragSource, DropTarget} from 'react-dnd';
 import flow from 'lodash/flow';
 
+const style = {
+    display: 'inline-block',
+    border: 'solid 1px darkred',
+    padding: '15px',
+    width: '200px',
+    margin: '1em',
+    cursor: 'move',
+    backgroundColor: 'white'
+}
+
+
 const bookSource = {
     beginDrag(props){
         return {
@@ -37,15 +48,11 @@ const bookTarget = {
 
 }
 function callbk(connect){
-    // debugger
     return {
         connectDropTarget: connect.dropTarget(),
     }
 }
 
-// DropTarget('book', bookTarget, connect => ({
-//     connectDropTarget: connect.DropTarget(),
-// }))
 
 function collect(connect, monitor){
     return {
@@ -54,27 +61,20 @@ function collect(connect, monitor){
     }
 }
 
-
-// DragSource('book', bookSource, (connect, monitor) => ({
-//     connectDragSource: connect.DragSourceI(),
-//     isDraggin: monitor.isDraggin(),
-// }))
-
-
  class Book extends React.Component {
     render(){
-        // debugger
         const  {
-            text, isDragging, connectDragSource, connectDropTarget } = this.props
+            text, index, isDragging, connectDragSource, connectDropTarget } = this.props
         const opasity = isDragging ? 0 : 1 
         return (
             connectDragSource(
                 connectDropTarget(
-                    <li style={{opasity}}>
-                        <p><strong>Title: </strong>{this.props.text.title}</p>
-                        <p><strong>Author: </strong>{this.props.text.author}</p>
-                        <p><strong>Price: </strong>{this.props.text.price}</p>   
-                    </li>
+                    <div style={{...style, opasity}}>
+                        <p><strong>Title: </strong>{text.title}</p>
+                        <p><strong>Author: </strong>{text.author}</p>
+                        <p><strong>Price: </strong>{text.price}</p>
+                        <p>{index}</p>   
+                    </div>
                 )
             )
         )

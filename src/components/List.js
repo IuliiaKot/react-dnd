@@ -4,6 +4,9 @@ import update from 'immutability-helper';
 import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
+const style = {
+    width: '80%'
+}
 
 class List extends React.Component {
     constructor(){
@@ -29,7 +32,7 @@ class List extends React.Component {
     render(){
         const {books} = this.state
         return(
-            <ul>
+            <div  style={style}>
                 {books.map((book, idx) => {
                     return <Book key={book.id}
                                 index={idx}
@@ -37,7 +40,7 @@ class List extends React.Component {
                                 text={book}
                                 moverBook={this.moveBook}/>
                 })}
-            </ul>
+            </div>
         )
     }
 }
