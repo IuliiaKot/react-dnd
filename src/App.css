@@ -9,4 +9,5 @@ ul li{
     padding: 15px;
     width: 200px;
     margin-right: 20px;
+    cursor: move;
 }
