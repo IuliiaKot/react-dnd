@@ -1,0 +1,12 @@
+.App {
+    margin: 0 auto;
+    width: 50%;
+}
+
+ul li{
+    display: inline-block;
+    border: solid 1px darkred;
+    padding: 15px;
+    width: 200px;
+    margin-right: 20px;
+}
