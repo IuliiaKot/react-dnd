@@ -31,7 +31,7 @@ const bookTarget = {
         if (dragIndex === hoverIndex){
             return 
         }
-
+        debugger
         const hoverBoundingRect = findDOMNode(component).getBoundingClientRect()
         const hoverMiddleY = (hoverBoundingRect.right - hoverBoundingRect.left) / 2
         const clientOffset = monitor.getClientOffset();
@@ -62,14 +62,21 @@ function collect(connect, monitor){
 }
 
  class Book extends React.Component {
+     constructor(props){
+        super(props);
+        this.state ={
+            name: props.name
+        }
+     }
     render(){
+        // debugger
         const  {
             text, index, isDragging, connectDragSource, connectDropTarget } = this.props
         const opasity = isDragging ? 0 : 1 
         return (
             connectDragSource(
                 connectDropTarget(
-                    <div style={{...style, opasity}}>
+                    <div style={{...style, opasity}} id={`id-${this.props.id}`}>
                         <p><strong>Title: </strong>{text.title}</p>
                         <p><strong>Author: </strong>{text.author}</p>
                         <p><strong>Price: </strong>{text.price}</p>

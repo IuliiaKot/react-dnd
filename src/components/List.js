@@ -38,7 +38,8 @@ class List extends React.Component {
                                 index={idx}
                                 id={book.id}
                                 text={book}
-                                moverBook={this.moveBook}/>
+                                moverBook={this.moveBook}
+                                name={"juilia"}/>
                 })}
             </div>
         )

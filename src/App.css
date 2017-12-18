@@ -11,3 +11,13 @@ ul li{
     margin-right: 20px;
     cursor: move;
 }
+
+#id-1 p {
+    color: #549826;
+}
+#id-2 p {
+    color: #093489;
+}
+#id-3 p {
+    color: #880f42;
+}
